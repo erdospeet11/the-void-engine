@@ -12,6 +12,8 @@ namespace void_engine {
         public:
             VWindow(const char* title, int width, int height);
             ~VWindow();
+            bool shouldClose() const;
+            void update();
 
         private:
             GLFWwindow* m_Window;
@@ -20,5 +22,6 @@ namespace void_engine {
             int m_Height;
             bool m_VSync;
             bool m_Fullscreen;
+            bool m_ShouldClose;
     };
 }
