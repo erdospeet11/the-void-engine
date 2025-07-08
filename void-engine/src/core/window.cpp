@@ -16,6 +16,9 @@ namespace void_engine {
         }
         
         glfwMakeContextCurrent(m_Window);
+        
+        glEnable(GL_DEPTH_TEST);
+        glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
     }
 
     VWindow::~VWindow() {
@@ -31,6 +34,8 @@ namespace void_engine {
 
     void VWindow::update() {
         if (m_Window) {
+            glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+            
             glfwPollEvents();
             glfwSwapBuffers(m_Window);
             m_ShouldClose = glfwWindowShouldClose(m_Window);
