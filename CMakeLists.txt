@@ -8,8 +8,17 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 include(FetchContent)
 
 # SDL2
-find_package(PkgConfig REQUIRED)
-pkg_check_modules(SDL2 REQUIRED sdl2)
+FetchContent_Declare(
+  SDL2
+  GIT_REPOSITORY https://github.com/libsdl-org/SDL.git
+  GIT_TAG release-2.30.9
+)
+
+set(SDL2_DISABLE_INSTALL ON CACHE BOOL "" FORCE)
+set(SDL_SHARED OFF CACHE BOOL "" FORCE)
+set(SDL_STATIC ON CACHE BOOL "" FORCE)
+
+FetchContent_MakeAvailable(SDL2)
 
 # Find OpenGL
 find_package(OpenGL REQUIRED)
@@ -18,7 +27,7 @@ find_package(OpenGL REQUIRED)
 FetchContent_Declare(
   glm
   GIT_REPOSITORY https://github.com/g-truc/glm.git
-  GIT_TAG 0.9.9.8
+  GIT_TAG 1.0.1
 )
 FetchContent_MakeAvailable(glm)
 
@@ -28,7 +37,8 @@ add_executable(VoidEngine main.cpp)
 # Link libraries
 target_link_libraries(VoidEngine 
   PRIVATE 
-  ${SDL2_LIBRARIES}
+  SDL2::SDL2-static
+  SDL2::SDL2main
   OpenGL::GL
   glm::glm
 )
