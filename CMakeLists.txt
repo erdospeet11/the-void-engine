@@ -7,18 +7,30 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 include(FetchContent)
 
-# SDL3
-FetchContent_Declare(
-  SDL3
-  GIT_REPOSITORY https://github.com/libsdl-org/SDL.git
-  GIT_TAG main
-)
-FetchContent_MakeAvailable(SDL3)
+# SDL2
+find_package(PkgConfig REQUIRED)
+pkg_check_modules(SDL2 REQUIRED sdl2)
 
-# ImGui
+# Find OpenGL
+find_package(OpenGL REQUIRED)
+
+# GLM
 FetchContent_Declare(
-  imgui
-  GIT_REPOSITORY https://github.com/ocornut/imgui.git
-  GIT_TAG docking
+  glm
+  GIT_REPOSITORY https://github.com/g-truc/glm.git
+  GIT_TAG 0.9.9.8
 )
-FetchContent_MakeAvailable(imgui)
+FetchContent_MakeAvailable(glm)
+
+# Create executable
+add_executable(VoidEngine main.cpp)
+
+# Link libraries
+target_link_libraries(VoidEngine 
+  PRIVATE 
+  ${SDL2_LIBRARIES}
+  OpenGL::GL
+  glm::glm
+)
+
+target_include_directories(VoidEngine PRIVATE ${SDL2_INCLUDE_DIRS})

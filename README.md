@@ -3,7 +3,7 @@ void Engine v1.0
 cool stuff
 
 - OpenGL 4.3? : Rendering
-- SDL 3? : Window, Sound, Input, Events
+- SDL 2 : Window, Sound, Input, Events
 - Jolt : Physics, Collisions
 - Imgui : UI
 

@@ -1,23 +1,19 @@
-// Include standard headers
 #include <stdio.h>
 #include <stdlib.h>
-
-// Include SDL3 for window management, input, and audio
-#include <SDL3/SDL.h>
-
-// Include OpenGL
+#include <SDL2/SDL.h>
 #include <GL/gl.h>
-
-// Include GLM
 #include <glm/glm.hpp>
+
 using namespace glm;
 
 int main(){
-    // Initialize SDL3
+    // Initialize SDL2
     if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO) != 0) {
-        fprintf(stderr, "Failed to initialize SDL3: %s\n", SDL_GetError());
+        fprintf(stderr, "Failed to initialize SDL2: %s\n", SDL_GetError());
         return -1;
     }
+    
+    printf("SDL2 initialized successfully!\n");
 
     // Set OpenGL attributes
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 4);
@@ -29,12 +25,13 @@ int main(){
     // Create window
     SDL_Window* window = SDL_CreateWindow(
         "Void Engine v1.0",
+        SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
         1024, 768,
         SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE
     );
     
     if (!window) {
-        fprintf(stderr, "Failed to create SDL3 window: %s\n", SDL_GetError());
+        fprintf(stderr, "Failed to create SDL2 window: %s\n", SDL_GetError());
         SDL_Quit();
         return -1;
     }
@@ -59,11 +56,11 @@ int main(){
         // Handle events
         while (SDL_PollEvent(&event)) {
             switch (event.type) {
-                case SDL_EVENT_QUIT:
+                case SDL_QUIT:
                     running = false;
                     break;
-                case SDL_EVENT_KEY_DOWN:
-                    if (event.key.key == SDLK_ESCAPE) {
+                case SDL_KEYDOWN:
+                    if (event.key.keysym.sym == SDLK_ESCAPE) {
                         running = false;
                     }
                     break;
@@ -78,7 +75,7 @@ int main(){
     }
 
     // Cleanup
-    SDL_GL_DestroyContext(glContext);
+    SDL_GL_DeleteContext(glContext);
     SDL_DestroyWindow(window);
     SDL_Quit();
     
