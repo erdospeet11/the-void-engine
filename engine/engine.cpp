@@ -10,12 +10,15 @@ using namespace glm;
 
 Engine::Engine()
 {
+    printf("Engine Initalized!");
 }
 
 Engine::~Engine()
 {
+    printf("Engine Destroyed!");
 }
 
 void Engine::run()
 {
+    printf("Engine is running!");
 }

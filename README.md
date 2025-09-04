@@ -20,3 +20,16 @@ cmake ..
 make
 ./VoidEngine
 ```
+
+Engine
+├── Game (manages overall game state, rules, assets)
+│   ├── Level (specific game levels/scenes)
+│   │   ├── Actor (game objects/entities)
+│   │   ├── Camera
+│   │   └── Scene Graph
+│   ├── AssetManager (textures, models, sounds)
+│   └── GameRules (scoring, win conditions, etc.)
+├── Renderer (OpenGL rendering system)
+├── Input (SDL2 input handling)
+├── Audio (SDL2 audio system)
+└── Physics (Jolt integration)
