@@ -31,6 +31,19 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(glm)
 
+# Assimp
+FetchContent_Declare(
+  assimp
+  GIT_REPOSITORY https://github.com/assimp/assimp.git
+  GIT_TAG v5.4.3
+)
+
+set(ASSIMP_BUILD_TESTS OFF CACHE BOOL "" FORCE)
+set(ASSIMP_INSTALL OFF CACHE BOOL "" FORCE)
+set(ASSIMP_BUILD_ZLIB ON CACHE BOOL "" FORCE)
+
+FetchContent_MakeAvailable(assimp)
+
 # Create executable
 add_executable(VoidEngine main.cpp)
 
@@ -41,6 +54,6 @@ target_link_libraries(VoidEngine
   SDL2::SDL2main
   OpenGL::GL
   glm::glm
+  assimp
 )
-
 target_include_directories(VoidEngine PRIVATE ${SDL2_INCLUDE_DIRS})
