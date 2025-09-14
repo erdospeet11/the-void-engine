@@ -44,16 +44,27 @@ set(ASSIMP_BUILD_ZLIB ON CACHE BOOL "" FORCE)
 
 FetchContent_MakeAvailable(assimp)
 
-# Create executable
-add_executable(VoidEngine main.cpp)
+# Find GLEW
+find_package(GLEW REQUIRED)
 
-# Link libraries
-target_link_libraries(VoidEngine 
+# Create executable for engine demo
+# add_executable(VoidEngine main.cpp)
+
+# Create executable for kendo game
+add_executable(KendoGame 
+  game/kendo.cpp
+  engine/Window.cpp
+  engine/Renderer.cpp
+  engine/Mesh.cpp
+)
+
+target_link_libraries(KendoGame 
   PRIVATE 
   SDL2::SDL2-static
   SDL2::SDL2main
   OpenGL::GL
+  GLEW::GLEW
   glm::glm
   assimp
 )
-target_include_directories(VoidEngine PRIVATE ${SDL2_INCLUDE_DIRS})
+target_include_directories(KendoGame PRIVATE ${SDL2_INCLUDE_DIRS} ${CMAKE_SOURCE_DIR}/engine)
