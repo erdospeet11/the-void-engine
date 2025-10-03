@@ -5,55 +5,25 @@ project(VoidEngine VERSION 1.0.0 LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-include(FetchContent)
-
-# SDL2
-FetchContent_Declare(
-  SDL2
-  GIT_REPOSITORY https://github.com/libsdl-org/SDL.git
-  GIT_TAG release-2.30.9
-)
-
-set(SDL2_DISABLE_INSTALL ON CACHE BOOL "" FORCE)
-set(SDL_SHARED OFF CACHE BOOL "" FORCE)
-set(SDL_STATIC ON CACHE BOOL "" FORCE)
-
-FetchContent_MakeAvailable(SDL2)
-
-# Find OpenGL
+# Find packages (provided by Conan)
+find_package(SDL2 REQUIRED)
+find_package(glm REQUIRED)
 find_package(OpenGL REQUIRED)
 
-# GLM
-FetchContent_Declare(
-  glm
-  GIT_REPOSITORY https://github.com/g-truc/glm.git
-  GIT_TAG 1.0.1
-)
-FetchContent_MakeAvailable(glm)
-
-# Assimp
-FetchContent_Declare(
-  assimp
-  GIT_REPOSITORY https://github.com/assimp/assimp.git
-  GIT_TAG v5.4.3
-)
-
-set(ASSIMP_BUILD_TESTS OFF CACHE BOOL "" FORCE)
-set(ASSIMP_INSTALL OFF CACHE BOOL "" FORCE)
-set(ASSIMP_BUILD_ZLIB ON CACHE BOOL "" FORCE)
-
-FetchContent_MakeAvailable(assimp)
-
 # Create executable
-add_executable(VoidEngine main.cpp)
+add_executable(VoidEngine 
+  engine/Engine.cpp
+  engine/Window.cpp
+  engine/Mesh.cpp
+  engine/Renderer.cpp
+  game/kendo.cpp
+)
 
 # Link libraries
 target_link_libraries(VoidEngine 
   PRIVATE 
-  SDL2::SDL2-static
+  SDL2::SDL2
   SDL2::SDL2main
   OpenGL::GL
   glm::glm
-  assimp
 )
-target_include_directories(VoidEngine PRIVATE ${SDL2_INCLUDE_DIRS})
