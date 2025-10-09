@@ -3,6 +3,13 @@ project(VoidEngine)
 
 find_package(SDL2 REQUIRED)
 
-add_executable(${PROJECT_NAME} src/engine src/game/main.cpp)
+find_package(assimp REQUIRED)
 
-target_link_libraries(${PROJECT_NAME} SDL2::SDL2)
+add_executable(${PROJECT_NAME} 
+    src/game/main.cpp
+    src/engine/Window.cpp
+)
+
+target_include_directories(${PROJECT_NAME} PRIVATE src)
+
+target_link_libraries(${PROJECT_NAME} SDL2::SDL2 assimp::assimp)

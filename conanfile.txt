@@ -1,5 +1,6 @@
 [requires]
 sdl/2.32.10
+assimp/5.4.3
 
 [generators]
 CMakeDeps
