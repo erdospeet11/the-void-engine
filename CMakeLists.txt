@@ -3,5 +3,6 @@ project(VoidEngine)
 
 find_package(SDL2 REQUIRED)
 
-add_executable(${PROJECT_NAME} game/main.cpp)
+add_executable(${PROJECT_NAME} src/engine src/game/main.cpp)
+
 target_link_libraries(${PROJECT_NAME} SDL2::SDL2)
