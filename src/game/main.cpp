@@ -1,13 +1,14 @@
 #include "../engine/Window.hpp"
-
-//Screen dimension constants
-const int SCREEN_WIDTH = 640;
-const int SCREEN_HEIGHT = 480;
+#include "../engine/Engine.hpp"
 
 int main(int argc, char* args[])
 {
+    VoidEngine::Engine engine;
+
+    engine.run();
+
     // Create window with OpenGL context
-    VoidEngine::Window window("Void Engine", SCREEN_WIDTH, SCREEN_HEIGHT);
+    VoidEngine::Window window("void", 640*2, 480*2);
 
     // Main loop
     while (!window.shouldClose()) {
