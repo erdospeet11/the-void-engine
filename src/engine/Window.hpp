@@ -4,6 +4,8 @@
 #include <SDL_opengl.h>
 #include <string>
 
+#include "Renderer.hpp"
+
 namespace VoidEngine {
     class Window {
         public:
@@ -13,9 +15,11 @@ namespace VoidEngine {
             void clear();
             bool shouldClose();
             void pollEvents();
+            void render();
         private:
             SDL_Window* window;
             SDL_GLContext glContext;
+            Renderer renderer;
             bool quit;
     };
 };

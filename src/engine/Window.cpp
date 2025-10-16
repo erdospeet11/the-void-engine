@@ -80,4 +80,8 @@ void Window::pollEvents() {
     }
 }
 
+void Window::render() {
+    renderer.render();
+}
+
 }

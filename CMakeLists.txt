@@ -7,12 +7,15 @@ find_package(assimp REQUIRED)
 
 find_package(glm REQUIRED)
 
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
+# Add globs
+file(GLOB GAME_SOURCES "src/game/*.cpp")
+file(GLOB ENGINE_SOURCES "src/engine/*.cpp")
+
 add_executable(${PROJECT_NAME} 
-    src/game/main.cpp
-    src/engine/Window.cpp
-    src/engine/Engine.cpp
-    src/engine/Renderer.cpp
-    src/engine/Camera.cpp
+    ${GAME_SOURCES}
+    ${ENGINE_SOURCES}
 )
 
 

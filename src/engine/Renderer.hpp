@@ -5,5 +5,6 @@ namespace VoidEngine {
         public:
             Renderer();
             ~Renderer();
+            void render();
     };
 }

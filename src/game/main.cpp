@@ -3,9 +3,8 @@
 
 int main(int argc, char* args[])
 {
-    VoidEngine::Engine engine;
-
-    engine.run();
+    //VoidEngine::Engine engine;
+    //engine.run();
 
     // Create window with OpenGL context
     VoidEngine::Window window("void", 640*2, 480*2);
@@ -18,6 +17,7 @@ int main(int argc, char* args[])
         window.clear();
 
         // Render
+        window.render();
 
         // Swap buffers
         window.swapBuffers();
