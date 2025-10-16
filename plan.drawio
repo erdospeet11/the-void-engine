@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="Bt3m2ZXEcsFTGp_QdqrY" name="Page-1">
-        <mxGraphModel dx="2237" dy="560" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="1628" dy="560" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -51,26 +51,26 @@
                 <mxCell id="13" value="Physics" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="-30" y="220" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="18" value="&lt;strong&gt;Define vertices&lt;/strong&gt; → Position data in CPU memory" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="60" y="620" width="300" height="60" as="geometry"/>
+                <mxCell id="18" value="&lt;strong&gt;Define vertices&lt;/strong&gt; → Position data in CPU memory" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="50" y="670" width="320" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="19" value="Lets say I want to render a triangle" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                <mxCell id="19" value="Lets say I want to render a triangle" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry y="570" width="210" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="20" value="&lt;strong&gt;Create VBO&lt;/strong&gt; → Send vertices to GPU" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="60" y="720" width="300" height="60" as="geometry"/>
+                <mxCell id="20" value="&lt;strong&gt;Create VBO&lt;/strong&gt; → Send vertices to GPU" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="50" y="750" width="320" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="21" value="&lt;strong&gt;Create EBO&lt;/strong&gt; → Send indices to GPU" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="70" y="820" width="280" height="60" as="geometry"/>
+                <mxCell id="21" value="&lt;strong&gt;Create EBO&lt;/strong&gt; → Send indices to GPU" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="50" y="830" width="320" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="22" value="&lt;strong&gt;Configure VAO&lt;/strong&gt; → Tell GPU how to read the data" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="60" y="910" width="300" height="60" as="geometry"/>
+                <mxCell id="22" value="&lt;strong&gt;Configure VAO&lt;/strong&gt; → Tell GPU how to read the data" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="50" y="910" width="320" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="24" value="&lt;strong&gt;Create shaders&lt;/strong&gt; → Tell GPU what to do with vertices (vertex shader) and how to color pixels (fragment shader)" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="24" value="&lt;strong&gt;Create shaders&lt;/strong&gt; → Tell GPU what to do with vertices (vertex shader) and how to color pixels (fragment shader)" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="50" y="990" width="320" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="25" value="&lt;strong&gt;Render&lt;/strong&gt; → Bind VAO, use shader, call &lt;code class=&quot;bg-text-200/5 border border-0.5 border-border-300 text-danger-000 whitespace-pre-wrap rounded-[0.4rem] px-1 py-px text-[0.9rem]&quot;&gt;glDrawElements()&lt;/code&gt;" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="60" y="1070" width="300" height="60" as="geometry"/>
+                <mxCell id="25" value="&lt;strong&gt;Render&lt;/strong&gt; → Bind VAO, use shader, call &lt;code class=&quot;bg-text-200/5 border border-0.5 border-border-300 text-danger-000 whitespace-pre-wrap rounded-[0.4rem] px-1 py-px text-[0.9rem]&quot;&gt;glDrawElements()&lt;/code&gt;" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="50" y="1070" width="320" height="60" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
