@@ -1,22 +1,33 @@
 #pragma once
 
 #include <string>
+#include <vector>
+#include <glm/glm.hpp>
+
+#include "Shader.hpp"
 
 namespace VoidEngine {
-    class Mesh {
-        public:
-            Mesh(const std::string& filename);
-            ~Mesh() = default;
-        private:
-            std::string filename;
+    struct Vertex{
+        glm::vec3 position;
+        glm::vec3 normal;
+        glm::vec2 texcoords;
     };
 
-    class PlaneMesh : public Mesh{
+    struct Texture{
+        unsigned int id;
+        std::string type;
+    };
+
+    class Mesh {
         public:
-            PlaneMesh();
-            ~PlaneMesh() = default;
+            //mesh data
+            std::vector<Vertex> vertices;
+            std::vector<unsigned int> indices;
+            std::vector<Texture> textures;
+            Mesh(std::vector<Vertex> vertices, std::vector<unsigned int> indices, std::vector<Texture> textures);
+            void Draw(Shader& shader);
+
         private:
-            float width;
-            float height;
+            std::string filename;
     };
 }
