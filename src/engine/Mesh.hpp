@@ -30,4 +30,12 @@ namespace VoidEngine {
         private:
             std::string filename;
     };
+
+    class Model : public Mesh {
+        public:
+            Model(std::string filename);
+            void Draw(Shader& shader);
+        private:
+            std::vector<Mesh> meshes;
+    };
 }

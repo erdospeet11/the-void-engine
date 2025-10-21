@@ -1,5 +1,6 @@
 #include "../engine/Window.hpp"
 #include "../engine/Engine.hpp"
+#include "../engine/Mesh.hpp"
 
 int main(int argc, char* args[])
 {
