@@ -14,6 +14,10 @@ int main(int argc, char* args[])
     // Create window with OpenGL context
     VoidEngine::Window window("void", 640*2, 480*2);
 
+
+    // ------------------------------------------------------------
+    //                        ASSIMP TESTING
+    // ------------------------------------------------------------
     Assimp::Importer importer;
     const aiScene* scene = importer.ReadFile("../src/game/assets/models/wizard.glb", aiProcess_Triangulate | aiProcess_FlipUVs);
     if (!scene) {
