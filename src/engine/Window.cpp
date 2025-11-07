@@ -46,7 +46,7 @@ Window::Window(const std::string& title, int width, int height) : window(nullptr
     SDL_GL_SetSwapInterval(1);
 
     // Set initial clear color to black
-    glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+    glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
 }
 
 Window::~Window() {
