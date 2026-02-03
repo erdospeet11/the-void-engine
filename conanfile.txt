@@ -1,0 +1,8 @@
+[requires]
+sdl/3.4.0
+glad/2.0.8
+[generators]
+CMakeDeps
+CMakeToolchain
+[layout]
+cmake_layout
