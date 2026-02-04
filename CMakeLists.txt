@@ -9,8 +9,9 @@ add_executable(VoidEngine
     game/main.cpp
     engine/Window.cpp
     engine/Window.hpp
-    engine/Triangle.hpp
-    engine/Triangle.cpp
+    engine/Renderer.hpp
+    engine/Renderer.cpp
 )
 
-target_link_libraries(VoidEngine PRIVATE sdl::sdl glad::glad)
+target_link_libraries(VoidEngine PRIVATE SDL3::SDL3 glad::glad)
+target_include_directories(VoidEngine PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
