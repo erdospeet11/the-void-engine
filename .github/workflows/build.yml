@@ -17,7 +17,7 @@ jobs:
         run: |
           conan profile detect --force
           conan install . \
-            --output-folder=build \
+            --output-folder=conan \
             --build=missing \
             --settings=build_type=Release \
             -c tools.system.package_manager:mode=install \
@@ -26,4 +26,4 @@ jobs:
       - name: Build Project
         uses: threeal/cmake-action@v2.1.0
         with:
-          args: -DCMAKE_TOOLCHAIN_FILE=${{ github.workspace }}/conan-deps/conan_toolchain.cmake -DCMAKE_BUILD_TYPE=Release
+          args: -DCMAKE_TOOLCHAIN_FILE=${{ github.workspace }}/conan/conan_toolchain.cmake -DCMAKE_BUILD_TYPE=Release
