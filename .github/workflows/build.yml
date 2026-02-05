@@ -26,4 +26,4 @@ jobs:
       - name: Build Project
         uses: threeal/cmake-action@v2.1.0
         with:
-          args: -DCMAKE_TOOLCHAIN_FILE=build/conan_toolchain.cmake -DCMAKE_BUILD_TYPE=Release
+          args: -DCMAKE_TOOLCHAIN_FILE=${{ github.workspace }}/conan-deps/conan_toolchain.cmake -DCMAKE_BUILD_TYPE=Release
