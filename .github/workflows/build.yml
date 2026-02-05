@@ -16,7 +16,12 @@ jobs:
       - name: Conan Install
         run: |
           conan profile detect --force
-          conan install . --output-folder=build --build=missing --settings=build_type=Release
+          conan install . \
+            --output-folder=build \
+            --build=missing \
+            --settings=build_type=Release \
+            -c tools.system.package_manager:mode=install \
+            -c tools.system.package_manager:sudo=True
 
       - name: Build Project
         uses: threeal/cmake-action@v2.1.0
