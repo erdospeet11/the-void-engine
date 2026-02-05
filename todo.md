@@ -1,5 +1,4 @@
-- [ ] Create a window
-- [ ] Create a renderer
-- [ ] Attach the renderer to the window
-- [ ] Renderer should have an opengl backend
+- [x] Create a window
+- [ ] Attach a renderer to it and a context
+- [ ] make the context be two things: deafult color by sdl and opengl
 

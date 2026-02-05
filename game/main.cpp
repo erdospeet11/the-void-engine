@@ -13,5 +13,7 @@ using namespace engine;
 
 int main() {
     Window window = Window(1280, 720);
-    Renderer renderer = Renderer();
+    while(window.isOpen()){
+        window.pollEvents();
+    }
 }
