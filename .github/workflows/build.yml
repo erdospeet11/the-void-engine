@@ -10,8 +10,11 @@ jobs:
       - name: Checkout Project
         uses: actions/checkout@v4.2.2
 
-      - name: Install Conan
-        run: pip install conan
+      - name: Install Dependencies
+        run: |
+          sudo apt update
+          sudo apt install -y ninja-build
+          pip install conan --break-system-packages || pip install conan
 
       - name: Conan Install
         run: |
@@ -26,4 +29,5 @@ jobs:
       - name: Build Project
         uses: threeal/cmake-action@v2.1.0
         with:
-          args: -DCMAKE_TOOLCHAIN_FILE=${{ github.workspace }}/conan/conan_toolchain.cmake -DCMAKE_BUILD_TYPE=Release
+          generator: Ninja
+          args: -DCMAKE_TOOLCHAIN_FILE=${{ github.workspace }}/conan/build/Release/generators/conan_toolchain.cmake -DCMAKE_BUILD_TYPE=Release
