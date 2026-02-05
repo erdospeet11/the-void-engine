@@ -1,6 +1,7 @@
 name: Build
 on:
   push:
+
 jobs:
   build-project:
     name: Build Project
@@ -9,5 +10,15 @@ jobs:
       - name: Checkout Project
         uses: actions/checkout@v4.2.2
 
+      - name: Install Conan
+        run: pip install conan
+
+      - name: Conan Install
+        run: |
+          conan profile detect --force
+          conan install . --output-folder=build --build=missing --settings=build_type=Release
+
       - name: Build Project
         uses: threeal/cmake-action@v2.1.0
+        with:
+          args: -DCMAKE_TOOLCHAIN_FILE=build/conan_toolchain.cmake -DCMAKE_BUILD_TYPE=Release
